@@ -92,14 +92,14 @@
 
 
 
-let name = 'Роман';
+let name = prompt('NAME');
 prompt(name);
 console.log(name);
 
-let fname = 'Ігорович'
+let fname = prompt( 'midlename');
 prompt(fname);
 console.log(fname);
 
-let age = '27';
+let age = prompt('AGE');
 prompt(age);
 console.log(age);
