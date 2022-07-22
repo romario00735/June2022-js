@@ -93,13 +93,11 @@
 
 
 let name = prompt('NAME');
-prompt(name);
+
 console.log(name);
 
 let fname = prompt( 'midlename');
-prompt(fname);
 console.log(fname);
 
 let age = prompt('AGE');
-prompt(age);
 console.log(age);
