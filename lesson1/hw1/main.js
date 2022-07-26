@@ -99,5 +99,5 @@ console.log(name);
 let fname = prompt( 'midlename');
 console.log(fname);
 
-let age = prompt('AGE');
+let age = +prompt('AGE');
 console.log(age);
