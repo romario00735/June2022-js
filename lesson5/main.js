@@ -81,19 +81,19 @@
 // mmm(listObj);
 
 // - створити функцію яка повертає найменьше число з масиву
-// function min(a,b,c) {
-//     if (a < b && a < c) {
-//         console.log(a)
-//     }else if (b < a && b < c) {
-//         console.log(b);
-//     } else if (c < a && c < b) {
-//         console.log(c);
-//     } else {
-//         console.log(errror);
-//     }
-// }
-// min(45,85,33)
+let aaray = [45, 25, 85, -1];
 
+function minimal(arr) {
+    let min = arr[0];
+    for (const minElement of arr) {
+        if (minElement < min) {
+            min = minElement;
+        }
+    }
+    return min;
+}
+
+console.log(minimal(aaray));
 
 
 // - створити функцію яка приймає масив чисел, сумує значення елементів масиву та повертає його. Приклад [1,2,10]->13
