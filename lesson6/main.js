@@ -34,8 +34,10 @@
 
 // - є масив чисел [10,8,-7,55,987,-1011,0,1050,0] . за допомоги map та колбеку перетворити всі об'єкти в масиві на стрінгові.
 // let arr = [10, 8, -7, 55, 987, -1011, 0, 1050, 0];
-// let str = arr.map(String);
+// let str = arr.map(num => num.toString());
 // console.log(str);
+
+
 // - створити функцію sortNums(direction), яка прймає масив чисел, та сортує його від більшого до меньшого, або навпаки в залежності від значення аргументу direction.
 //     let nums = [11,21,3];
 // sortNums(nums,'ascending') // [3,11,21]
@@ -48,7 +50,7 @@
 //     else if (direction === 'descending') {
 //         number.sort((num1, num2) => num2 - num1);
 //
-//     }
+//     } return number;
 // }
 // sortNums(nums, 'ascending');
 // console.log(nums);
@@ -67,15 +69,12 @@
 //     {title: 'Frontend', monthDuration: 4}
 // ];
 // let sort = coursesAndDurationArray.sort((s1,s2)=>{
-//     return s1.monthDuration - s2.monthDuration;
+//     return s2.monthDuration - s1.monthDuration;
 // })
 // console.log(sort);
-// coursesAndDurationArray.forEach((monthD) => {
-//     if (monthD.monthDuration > 5) {
-//         console.log(monthD);
-//     }
-// });
-
+// let filter = coursesAndDurationArray.filter(value => value.monthDuration > 5);
+// console.log(filter);
+//
 
 
 
@@ -143,21 +142,25 @@ let arrCards = [
 
 ];
 // - знайти піковий туз
-console.log(arrCards.filter(value => value.value === 'Ace' && value.cardSuit === 'spades'));
-// - всі шістки
-let find = arrCards.filter(value => value.value === 6)
-console.log(find);
-// - всі червоні карти
-console.log(arrCards.filter(value => value.color === 'red'));
-
-// - всі буби
-console.log(arrCards.filter(value => value.cardSuit === 'diamonds'));
-
-// - всі трефи від 9 та більше
-console.log(arrCards.filter(value => value.value >= 9 && value.cardSuit === 'clubs'));
-
+// let find1 = arrCards.find(value => value.value === 'Ace' && value.cardSuit === 'spades');
+// console.log(find1);
+// // - всі шістки
+// let find = arrCards.filter(value => value.value === 6)
+// console.log(find);
+// // - всі червоні карти
+// let filter = arrCards.filter(value => value.color === 'red');
+// console.log(filter);
 //
+// // - всі буби
+// let filter1 = arrCards.filter(value => value.cardSuit === 'diamonds');
+// console.log(filter1);
 //
+// // - всі трефи від 9 та більше
+// let filter2 = arrCards.filter(value => value.value >= 9 && value.cardSuit === 'spades' || typeof value.value === 'string' &&
+//     value.cardSuit === 'spades' || value.value === 'Joker' && value.color === 'black');
+// console.log(filter2);
+// //
+// //
 // {
 //     cardSuit: '', // 'spade', 'diamond','heart', 'clubs'
 //         value: '', // '6'-'10', 'ace','jack','queen','king','joker'
@@ -174,3 +177,24 @@ console.log(arrCards.filter(value => value.value >= 9 && value.cardSuit === 'clu
 //     hearts:[],
 //     clubs:[]
 // }
+let pakovka = arrCards.reduce((accum, card) => {
+    if (card.cardSuit === 'spades') {
+        accum.spades.push(card);
+    } else if (card.cardSuit === 'diamonds') {
+        accum.diamonds.push(card);
+    } else if (card.cardSuit === 'hearts') {
+        accum.hearts.push(card);
+    } else if (card.cardSuit === 'clubs') {
+        accum.clubs.push(card);
+    } else {
+        (accum.joker.push(card));
+    }
+    return accum;
+}, {
+    spades: [],
+    diamonds: [],
+    hearts: [],
+    clubs: [],
+    joker: []
+});
+console.log(pakovka);
